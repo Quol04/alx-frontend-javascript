@@ -77,7 +77,7 @@ console.log(createEmployee("$500")); // Director
 type Subjects = "Math" | "History";
 
 // Function teachClass
-function teachClass(todayClass: Subjects): string {
+function teachClass(todayClass:Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
   }
