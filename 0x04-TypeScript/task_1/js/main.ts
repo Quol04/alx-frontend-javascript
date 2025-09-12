@@ -22,14 +22,14 @@ console.log(teacher3);
 
 
 // ---------------------------------------------
-// Task 2: Define a Directors interface that extends Teacher
-// ---------------------------------------------
-interface Directors extends Teacher {
+// Task 2: Define a Director interface that extends Teacher
+
+interface Director extends Teacher {
   numberOfReports: number;
 }
 
 // Example usage
-const director1: Directors = {
+const director1: Director = {
   firstName: "Alice",
   lastName: "Johnson",
   location: "Lagos",
