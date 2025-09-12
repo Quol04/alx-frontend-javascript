@@ -1,5 +1,6 @@
-//Task 1: Define a Teacher interface and a Directors interface that extends it
-// Define the Teacher interface
+// ---------------------------------------------
+// Task 1: Define a Teacher interface
+// ---------------------------------------------
 interface Teacher {
   readonly firstName: string;        // only set at initialization
   readonly lastName: string;         // only set at initialization
@@ -14,65 +15,59 @@ const teacher3: Teacher = {
   firstName: "David",
   fullTimeEmployee: false,
   lastName: "Smith",
-  location: "lagos",
+  location: "Lagos",
   contract: false, // extra property
 };
-
 console.log(teacher3);
 
 
 // ---------------------------------------------
-
-//Task 2: Define a Directors interface that extends Teacher
-// and includes a numberOfReports property
-
+// Task 2: Define a Directors interface that extends Teacher
+// ---------------------------------------------
 interface Directors extends Teacher {
   numberOfReports: number;
 }
-// Example usage of Directors
+
+// Example usage
 const director1: Directors = {
   firstName: "Alice",
   lastName: "Johnson",
-  location: "lagos",
+  location: "Lagos",
   fullTimeEmployee: true,
   numberOfReports: 5,
 };
 console.log(director1);
 
 
-
 // ---------------------------------------------
-
-//Task 3: Define the function interface
+// Task 3: Define the printTeacher function
+// ---------------------------------------------
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  ({ firstName, lastName }: { firstName: string; lastName: string }): string;
 }
 
-// Implement the function
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
-  return `${firstName.charAt(0)}. ${lastName}`;
-};
+// Function implementation with destructured params
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  return `${firstName}. ${lastName}`;
+}
 
 // Example usage
-console.log(printTeacher("John", "Doe")); // Output: "J. Doe"
-
+console.log(printTeacher({ firstName: "John", lastName: "Doe" })); // Output: "J. Doe"
 
 
 // ---------------------------------------------
-//Task 4: Interface for constructor
-
+// Task 4: Define the StudentClass
+// ---------------------------------------------
 interface StudentClassConstructor {
   new (firstName: string, lastName: string): StudentClassInterface;
 }
 
-// Interface for the class methods
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
 
-// Class implementing the interface
-class StudentClass implements StudentClassInterface {
+class StudentClass {
   private firstName: string;
   private lastName: string;
 
@@ -94,3 +89,6 @@ class StudentClass implements StudentClassInterface {
 const student: StudentClassInterface = new StudentClass("Mary", "Smith");
 console.log(student.displayName());     // Mary
 console.log(student.workOnHomework());  // Currently working
+
+
+// ---------------------------------------------
